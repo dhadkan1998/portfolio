@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dhadkan Shrestha | AI & ML Researcher</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #fff;
+      --nav-bg: rgba(20, 20, 20, 0.9);
+      --link-color: #eee;
+      --particle-color: #ffffff;
+      --primary-accent: #4f46e5;
+      --secondary-accent: #10b981;
+      --card-bg: rgba(30, 30, 30, 0.7);
+      --text-muted: #a1a1aa;
+    }
+    .light-theme {
+      --bg-color: #f8fafc;
+      --text-color: #111827;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --link-color: #374151;
+      --particle-color: #999999;
+      --primary-accent: #6366f1;
+      --secondary-accent: #059669;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-muted: #4b5563;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.5s ease, color 0.3s ease;
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background-color: var(--primary-accent);
+      color: white;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 1.2em 3em;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.8em 3em;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--primary-accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo i {
+      font-size: 1.4rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5em;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-accent);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: 2px solid var(--primary-accent);
+      color: var(--primary-accent);
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--primary-accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    header {
+      height: 100vh;
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2em;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 800px;
+      padding: 2em;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.3em;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: 1.3rem;
+      margin-bottom: 1.5em;
+      color: var(--text-muted);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.8em 1.8em;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-accent);
+      color: white;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--primary-accent);
+      color: var(--primary-accent);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primary-accent);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      color: var(--text-color);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+      40% { transform: translateY(-20px) translateX(-50%); }
+      60% { transform: translateY(-10px) translateX(-50%); }
+    }
+
+    section {
+      padding: 6em 2em;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 4px;
+      bottom: -10px;
+      left: 20%;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .about-content {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary-accent);
+    }
+
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border: 5px solid var(--primary-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 150px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-accent);
+    }
+
+    .skill-card h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .publications-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .publication-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .publication-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .publication-card h3 {
+      color: var(--primary-accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .publication-card .authors {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .publication-card .journal {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .publication-card .doi {
+      font-size: 0.8rem;
+      word-break: break-all;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-image {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      margin-top: 0;
+      color: var(--primary-accent);
+    }
+
+    .project-content p {
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .project-tag {
+      background-color: rgba(79, 70, 229, 0.2);
+      color: var(--primary-accent);
+      padding: 0.3em 0.8em;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-item i {
+      font-size: 1.5rem;
+      color: var(--primary-accent);
+      width: 50px;
+      height: 50px;
+      background: rgba(79, 70, 229, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-item a {
+      color: var(--text-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-accent);
+    }
+
+    .contact-form {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-color);
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-accent);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: var(--primary-accent);
+      color: white;
+      border: none;
+      padding: 0.8em 1.8em;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3em 2em;
+      background: var(--nav-bg);
+      margin-top: 4em;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-link {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: var(--primary-accent);
+      transform: translateY(-3px);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1em;
+      }
+      
+      nav ul {
+        gap: 1em;
+        display: none;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .profile-img {
+        width: 200px;
+        height: 200px;
+        margin-top: 2rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-logo">
+      <i class="fas fa-robot"></i>
+      <span>Dhadkan Shrestha</span>
+    </div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <i class="fas fa-moon"></i>
+      <span>Theme</span>
+    </button>
+  </nav>
+
+  <header>
+    <div id="particles-js"></div>
+    <div class="hero-text" data-aos="fade-up" data-aos-delay="100">
+      <h1>Innovating with Intelligent Systems</h1>
+      <p>AI & Machine Learning Researcher specializing in reinforcement learning and autonomous systems</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-laptop-code"></i>
+          View Projects
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-paper-plane"></i>
+          Contact Me
+        </a>
+      </div>
+    </div>
+    <div class="scroll-down" onclick="scrollToSection('about')">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-header" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>Passionate about creating intelligent systems that solve real-world problems</p>
+    </div>
+    <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+      <div class="about-text">
+        <h3>Hello, I'm Dhadkan Shrestha</h3>
+        <p>I am an AI/ML researcher with expertise in reinforcement learning, deep learning, and data visualization. My work focuses on developing intelligent systems that can operate autonomously in complex environments.</p>
+        <p>With a strong academic background and several peer-reviewed publications, I specialize in creating AI-powered solutions for robotics and autonomous systems. My research has applications in areas like emergency response, healthcare, and environmental monitoring.</p>
+        <p>I've developed systems for elderly fall detection, fire rescue robots, yoga pose estimation, and more using cutting-edge technologies like Docker, AWS, and Python. I'm certified in Google Data Analytics and Deep Learning Specializations.</p>
+        <div class="hero-buttons" style="justify-content: flex-start; margin-top: 2rem;">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fas fa-envelope"></i>
+            Get In Touch
+          </a>
+          <a href="#" class="btn btn-secondary">
+            <i class="fas fa-file-pdf"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
+      <div class="about-image floating">
+        <img src="Shrestha-Dhadkan04.jpg" alt="Dhadkan Shrestha" class="profile-img" />
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Technical Skills</h2>
+      <p>The tools and technologies I use to bring ideas to life</p>
+    </div>
+    <div class="skills-container" data-aos="fade-up" data-aos-delay="100">
+      <div class="skill-card">
+        <i class="fab fa-python"></i>
+        <h4>Python</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-brain"></i>
+        <h4>TensorFlow</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-project-diagram"></i>
+        <h4>PyTorch</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-robot"></i>
+        <h4>Reinforcement Learning</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-chart-line"></i>
+        <h4>Data Analysis</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-aws"></i>
+        <h4>AWS</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fab fa-docker"></i>
+        <h4>Docker</h4>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-database"></i>
+        <h4>SQL</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Publications</h2>
+      <p>My contributions to academic research and literature</p>
+    </div>
+    <div class="publications-list" data-aos="fade-up" data-aos-delay="100">
+      <div class="publication-card">
+        <h3>Reinforced NEAT Algorithms for Autonomous Rover Navigation in Multi-Room Dynamic Scenario</h3>
+        <div class="authors">Shrestha, D., & Valles, D.</div>
+        <div class="journal">Fire, 8(2), 41</div>
+        <div class="doi">https://doi.org/10.3390/fire8020041</div>
+        <p>This paper presents a novel approach to autonomous navigation in dynamic fire environments using reinforced NeuroEvolution of Augmenting Topologies (NEAT) algorithms.</p>
+      </div>
+
+      <div class="publication-card">
+        <h3>Evolving Autonomous Navigation: A NEAT Approach for Firefighting Rover Operations in Dynamic Environments</h3>
+        <div class="authors">Shrestha, D., & Valles, D.</div>
+        <div class="journal">24th Annual IEEE International Conference on Electro Information Technology (EIT2024)</div>
+        <div class="doi">https://doi.org/10.3390/fire8020041</div>
+        <p>This paper presents a novel approach to autonomous navigation in dynamic fire environments using reinforced NeuroEvolution of Augmenting Topologies (NEAT) algorithms.</p>
+      </div>
+      <div class="publication-card">
+        <h3>Reinforced NEAT Algorithms for Firefighting Rover Navigation</h3>
+        <div class="authors">Shrestha, D., & Valles, D.</div>
+        <div class="journal">Fire, 8(2), 41</div>
+        <div class="doi">https://doi.org/10.3390/fire8020041</div>
+        <p>This paper presents a novel approach to autonomous navigation in dynamic fire environments using reinforced NeuroEvolution of Augmenting Topologies (NEAT) algorithms.</p>
+      </div>
+
+
+      <div class="publication-card">
+        <h3>Autonomous Navigation in Dynamic Environments Using NEAT</h3>
+        <div class="authors">Shrestha, D., & Valles, D.</div>
+        <div class="journal">IEEE EIT 2024 Conference Proceedings</div>
+        <p>Research on adapting NEAT algorithms for real-time navigation in unpredictable environments with moving obstacles and changing conditions.</p>
+      </div>
+      <div class="publication-card">
+        <h3>Machine Learning Approaches for Water Potability Prediction</h3>
+        <div class="authors">Poudel et al.</div>
+        <div class="journal">Journal of Innovations in Engineering Education</div>
+        <div class="doi">https://doi.org/10.3126/jiee.v5i1.42265</div>
+        <p>Comparative study of machine learning models on imputed datasets for predicting water potability with high accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Featured Projects</h2>
+      <p>Practical applications of my research and skills</p>
+    </div>
+    <div class="projects-grid" data-aos="fade-up" data-aos-delay="100">
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="NEAT-Driven Autonomous Rover" class="project-image" />
+        <div class="project-content">
+          <h3>NEAT-Driven Autonomous Rover</h3>
+          <p>An intelligent rover that uses NeuroEvolution of Augmenting Topologies to navigate complex environments autonomously.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">NEAT</span>
+            <span class="project-tag">Robotics</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI Firebot Navigation" class="project-image" />
+        <div class="project-content">
+          <h3>AI Firebot Navigation</h3>
+          <p>Reinforcement learning system for fire rescue robots to navigate through burning buildings efficiently.</p>
+          <div class="project-tags">
+            <span class="project-tag">RL</span>
+            <span class="project-tag">PyTorch</span>
+            <span class="project-tag">Simulation</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Yoga Pose Estimation" class="project-image" />
+        <div class="project-content">
+          <h3>Yoga Pose Estimation</h3>
+          <p>Computer vision system that analyzes and provides feedback on yoga poses using deep learning.</p>
+          <div class="project-tags">
+            <span class="project-tag">OpenCV</span>
+            <span class="project-tag">TensorFlow</span>
+            <span class="project-tag">Pose Estimation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Get In Touch</h2>
+      <p>I'm always open to discussing new projects, research opportunities, or collaborations</p>
+    </div>
+    <div class="contact-container" data-aos="fade-up" data-aos-delay="100">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:shresthadhadkan10@gmail.com">shresthadhadkan10@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <div>
+            <h3>LinkedIn</h3>
+            <a href="https://linkedin.com/in/dhadkan-shrestha" target="_blank">linkedin.com/in/dhadkan-shrestha</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <div>
+            <h3>GitHub</h3>
+            <a href="https://github.com/dhadkan1998" target="_blank">github.com/dhadkan1998</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h3>Location</h3>
+            <p>Texas, USA</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i>
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/dhadkan-shrestha" target="_blank" class="social-link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/dhadkan1998" target="_blank" class="social-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com/" target="_blank" class="social-link">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://scholar.google.com/" target="_blank" class="social-link">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Dhadkan Shrestha. All rights reserved.</p>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false
+    });
+
+    // Initialize particles.js
+    function initParticles() {
+      particlesJS('particles-js', {
+        particles: {
+          number: { 
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: getComputedStyle(document.documentElement).getPropertyValue('--particle-color').trim()
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000"
+            }
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 2,
+              size_min: 0.1,
+              sync: false
+            }
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: getComputedStyle(document.documentElement).getPropertyValue('--particle-color').trim(),
+            opacity: 0.4,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200
+            }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "grab"
+            },
+            onclick: {
+              enable: true,
+              mode: "push"
+            },
+            resize: true
+          },
+          modes: {
+            grab: {
+              distance: 140,
+              line_linked: {
+                opacity: 1
+              }
+            },
+            push: {
+              particles_nb: 4
+            }
+          }
+        },
+        retina_detect: true
+      });
+    }
+
+    initParticles();
+
+    // Theme toggle function
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+      
+      // Update theme icon
+      const themeIcon = document.querySelector('.theme-toggle i');
+      if (document.body.classList.contains('light-theme')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+      
+      // Reinitialize particles with new color
+      setTimeout(() => {
+        document.getElementById('particles-js').innerHTML = '';
+        initParticles();
+      }, 300);
+    }
+
+    // Scroll to section function
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Show/hide back to top button
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Back to top button functionality
+    document.getElementById('backToTop').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you soon.');
+      this.reset();
+    });
+
+    // Smooth scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
